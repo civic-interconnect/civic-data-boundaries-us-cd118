@@ -1,0 +1,44 @@
+site_name: civic-data-boundaries-us-cd118 Documentation
+site_description: Documentation for civic-data-boundaries-us-cd118
+theme:
+  name: material
+  palette:
+  - scheme: default
+    primary: indigo
+    accent: indigo
+  features:
+  - navigation.expand
+nav:
+- Home: index.md
+- API Reference:
+  - Civic Data Boundaries Us.Build Index: api/civic_data_boundaries_us.build_index.md
+  - Civic Data Boundaries Us.Cd118 Config: api/civic_data_boundaries_us.cd118_config.md
+  - Civic Data Boundaries Us.Cleanup: api/civic_data_boundaries_us.cleanup.md
+  - Civic Data Boundaries Us.Cli.Build: api/civic_data_boundaries_us.cli.build.md
+  - Civic Data Boundaries Us.Cli.Cli: api/civic_data_boundaries_us.cli.cli.md
+  - Civic Data Boundaries Us.Cli.Dev: api/civic_data_boundaries_us.cli.dev.md
+  - Civic Data Boundaries Us.Cli.Release: api/civic_data_boundaries_us.cli.release.md
+  - Civic Data Boundaries Us.Config.Tiger Layers Config: api/civic_data_boundaries_us.config.tiger_layers_config.md
+  - Civic Data Boundaries Us.Export: api/civic_data_boundaries_us.export.md
+  - Civic Data Boundaries Us.Export Cd118: api/civic_data_boundaries_us.export_cd118.md
+  - Civic Data Boundaries Us.Export State: api/civic_data_boundaries_us.export_state.md
+  - Civic Data Boundaries Us.Fetch: api/civic_data_boundaries_us.fetch.md
+  - Civic Data Boundaries Us.Get Paths: api/civic_data_boundaries_us.get_paths.md
+  - Civic Data Boundaries Us.Index: api/civic_data_boundaries_us.index.md
+  - Civic Data Boundaries Us.Utils.Get Paths: api/civic_data_boundaries_us.utils.get_paths.md
+  - Civic Data Boundaries Us.Utils.Tiger Config: api/civic_data_boundaries_us.utils.tiger_config.md
+  - Civic Data Boundaries Us.Utils.Tiger Utils: api/civic_data_boundaries_us.utils.tiger_utils.md
+  - Civic Data Boundaries Us Cd118.Cleanup: api/civic_data_boundaries_us_cd118.cleanup.md
+  - Civic Data Boundaries Us Cd118.Cli.Cli: api/civic_data_boundaries_us_cd118.cli.cli.md
+  - Civic Data Boundaries Us Cd118.Export: api/civic_data_boundaries_us_cd118.export.md
+  - Civic Data Boundaries Us Cd118.Export Cd118: api/civic_data_boundaries_us_cd118.export_cd118.md
+  - Civic Data Boundaries Us Cd118.Fetch: api/civic_data_boundaries_us_cd118.fetch.md
+  - Civic Data Boundaries Us Cd118.Index: api/civic_data_boundaries_us_cd118.index.md
+  - Civic Data Boundaries Us Cd118.Utils.Config Utils: api/civic_data_boundaries_us_cd118.utils.config_utils.md
+  - Civic Data Boundaries Us Cd118.Utils.Get Paths: api/civic_data_boundaries_us_cd118.utils.get_paths.md
+plugins:
+- search
+markdown_extensions:
+- toc
+- codehilite
+- admonition

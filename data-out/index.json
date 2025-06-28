@@ -1,0 +1,512 @@
+[
+  {
+    "path": "national\\cd118_us.geojson",
+    "bbox": [
+      -179.230233,
+      18.866786,
+      179.859681,
+      71.435407
+    ],
+    "features": 438
+  },
+  {
+    "path": "states\\alabama\\cd118_alabama.geojson",
+    "bbox": [
+      -88.473227,
+      30.144689,
+      -84.888566,
+      35.008028
+    ],
+    "features": 7
+  },
+  {
+    "path": "states\\alaska\\cd118_alaska.geojson",
+    "bbox": [
+      -179.230233,
+      51.179041,
+      179.859681,
+      71.435407
+    ],
+    "features": 1
+  },
+  {
+    "path": "states\\arizona\\cd118_arizona.geojson",
+    "bbox": [
+      -114.813934,
+      31.332341,
+      -109.045172,
+      37.000516
+    ],
+    "features": 9
+  },
+  {
+    "path": "states\\arkansas\\cd118_arkansas.geojson",
+    "bbox": [
+      -94.617857,
+      33.004298,
+      -89.643585,
+      36.499532
+    ],
+    "features": 4
+  },
+  {
+    "path": "states\\california\\cd118_california.geojson",
+    "bbox": [
+      -124.482003,
+      32.528832,
+      -114.131489,
+      42.009503
+    ],
+    "features": 52
+  },
+  {
+    "path": "states\\colorado\\cd118_colorado.geojson",
+    "bbox": [
+      -109.060204,
+      36.993016,
+      -102.042089,
+      41.00292
+    ],
+    "features": 8
+  },
+  {
+    "path": "states\\connecticut\\cd118_connecticut.geojson",
+    "bbox": [
+      -73.727775,
+      40.950943,
+      -71.788213,
+      42.049525
+    ],
+    "features": 6
+  },
+  {
+    "path": "states\\delaware\\cd118_delaware.geojson",
+    "bbox": [
+      -75.788596,
+      38.451632,
+      -74.986282,
+      39.837799
+    ],
+    "features": 1
+  },
+  {
+    "path": "states\\florida\\cd118_florida.geojson",
+    "bbox": [
+      -87.634871,
+      24.396308,
+      -79.975009,
+      31.000884
+    ],
+    "features": 28
+  },
+  {
+    "path": "states\\georgia\\cd118_georgia.geojson",
+    "bbox": [
+      -85.604949,
+      30.355901,
+      -80.78296,
+      35.001303
+    ],
+    "features": 14
+  },
+  {
+    "path": "states\\hawaii\\cd118_hawaii.geojson",
+    "bbox": [
+      -178.443593,
+      18.866786,
+      -154.756605,
+      28.516334
+    ],
+    "features": 2
+  },
+  {
+    "path": "states\\idaho\\cd118_idaho.geojson",
+    "bbox": [
+      -117.243019,
+      41.996279,
+      -111.046714,
+      49.000846
+    ],
+    "features": 2
+  },
+  {
+    "path": "states\\illinois\\cd118_illinois.geojson",
+    "bbox": [
+      -91.512974,
+      36.973518,
+      -87.019935,
+      42.508481
+    ],
+    "features": 18
+  },
+  {
+    "path": "states\\indiana\\cd118_indiana.geojson",
+    "bbox": [
+      -88.09776,
+      37.771777,
+      -84.784902,
+      41.760171
+    ],
+    "features": 9
+  },
+  {
+    "path": "states\\iowa\\cd118_iowa.geojson",
+    "bbox": [
+      -96.639484,
+      40.375659,
+      -90.140061,
+      43.50055
+    ],
+    "features": 4
+  },
+  {
+    "path": "states\\kansas\\cd118_kansas.geojson",
+    "bbox": [
+      -102.051769,
+      36.993016,
+      -94.5894,
+      40.000881
+    ],
+    "features": 4
+  },
+  {
+    "path": "states\\kentucky\\cd118_kentucky.geojson",
+    "bbox": [
+      -89.571203,
+      36.497058,
+      -81.964872,
+      39.147732
+    ],
+    "features": 6
+  },
+  {
+    "path": "states\\louisiana\\cd118_louisiana.geojson",
+    "bbox": [
+      -94.043015,
+      28.860631,
+      -88.760151,
+      33.019262
+    ],
+    "features": 6
+  },
+  {
+    "path": "states\\maine\\cd118_maine.geojson",
+    "bbox": [
+      -71.083928,
+      42.917126,
+      -66.885444,
+      47.459833
+    ],
+    "features": 2
+  },
+  {
+    "path": "states\\maryland\\cd118_maryland.geojson",
+    "bbox": [
+      -79.486875,
+      37.886605,
+      -74.986282,
+      39.722199
+    ],
+    "features": 8
+  },
+  {
+    "path": "states\\massachusetts\\cd118_massachusetts.geojson",
+    "bbox": [
+      -73.50821,
+      41.189803,
+      -69.85895,
+      42.885032
+    ],
+    "features": 9
+  },
+  {
+    "path": "states\\michigan\\cd118_michigan.geojson",
+    "bbox": [
+      -90.418392,
+      41.696118,
+      -82.122971,
+      48.306063
+    ],
+    "features": 13
+  },
+  {
+    "path": "states\\minnesota\\cd118_minnesota.geojson",
+    "bbox": [
+      -97.239093,
+      43.50039,
+      -89.483385,
+      49.384479
+    ],
+    "features": 8
+  },
+  {
+    "path": "states\\mississippi\\cd118_mississippi.geojson",
+    "bbox": [
+      -91.655009,
+      30.139845,
+      -88.097888,
+      34.995694
+    ],
+    "features": 4
+  },
+  {
+    "path": "states\\missouri\\cd118_missouri.geojson",
+    "bbox": [
+      -95.768693,
+      35.995745,
+      -89.098983,
+      40.61364
+    ],
+    "features": 8
+  },
+  {
+    "path": "states\\montana\\cd118_montana.geojson",
+    "bbox": [
+      -116.049108,
+      44.357969,
+      -104.039694,
+      49.000846
+    ],
+    "features": 2
+  },
+  {
+    "path": "states\\nebraska\\cd118_nebraska.geojson",
+    "bbox": [
+      -104.053249,
+      39.999998,
+      -95.30829,
+      43.000585
+    ],
+    "features": 3
+  },
+  {
+    "path": "states\\nevada\\cd118_nevada.geojson",
+    "bbox": [
+      -120.001014,
+      35.001857,
+      -114.041477,
+      41.994944
+    ],
+    "features": 4
+  },
+  {
+    "path": "states\\new_hampshire\\cd118_new_hampshire.geojson",
+    "bbox": [
+      -72.552622,
+      42.697042,
+      -70.575094,
+      45.305484
+    ],
+    "features": 3
+  },
+  {
+    "path": "states\\new_jersey\\cd118_new_jersey.geojson",
+    "bbox": [
+      -75.563562,
+      38.788657,
+      -73.889645,
+      41.357607
+    ],
+    "features": 12
+  },
+  {
+    "path": "states\\new_mexico\\cd118_new_mexico.geojson",
+    "bbox": [
+      -109.050033,
+      31.332348,
+      -103.00229,
+      37.00015
+    ],
+    "features": 3
+  },
+  {
+    "path": "states\\new_york\\cd118_new_york.geojson",
+    "bbox": [
+      -79.762418,
+      40.476578,
+      -71.777491,
+      45.015865
+    ],
+    "features": 26
+  },
+  {
+    "path": "states\\north_carolina\\cd118_north_carolina.geojson",
+    "bbox": [
+      -84.321729,
+      33.75872,
+      -75.400849,
+      36.588137
+    ],
+    "features": 14
+  },
+  {
+    "path": "states\\north_dakota\\cd118_north_dakota.geojson",
+    "bbox": [
+      -104.048692,
+      45.937095,
+      -96.554411,
+      49.000454
+    ],
+    "features": 1
+  },
+  {
+    "path": "states\\ohio\\cd118_ohio.geojson",
+    "bbox": [
+      -84.820155,
+      38.40496,
+      -80.518991,
+      42.327132
+    ],
+    "features": 15
+  },
+  {
+    "path": "states\\oklahoma\\cd118_oklahoma.geojson",
+    "bbox": [
+      -103.002366,
+      33.615964,
+      -94.431014,
+      37.00015
+    ],
+    "features": 5
+  },
+  {
+    "path": "states\\oregon\\cd118_oregon.geojson",
+    "bbox": [
+      -124.703541,
+      41.992988,
+      -116.463504,
+      46.299099
+    ],
+    "features": 6
+  },
+  {
+    "path": "states\\pennsylvania\\cd118_pennsylvania.geojson",
+    "bbox": [
+      -80.519851,
+      39.720106,
+      -74.69003,
+      42.516072
+    ],
+    "features": 17
+  },
+  {
+    "path": "states\\rhode_island\\cd118_rhode_island.geojson",
+    "bbox": [
+      -71.907221,
+      41.099091,
+      -71.088571,
+      42.018798
+    ],
+    "features": 2
+  },
+  {
+    "path": "states\\south_carolina\\cd118_south_carolina.geojson",
+    "bbox": [
+      -83.353928,
+      31.995954,
+      -78.499301,
+      35.215224
+    ],
+    "features": 7
+  },
+  {
+    "path": "states\\south_dakota\\cd118_south_dakota.geojson",
+    "bbox": [
+      -104.057879,
+      42.482749,
+      -96.436472,
+      45.945308
+    ],
+    "features": 1
+  },
+  {
+    "path": "states\\tennessee\\cd118_tennessee.geojson",
+    "bbox": [
+      -90.310491,
+      34.98302,
+      -81.6469,
+      36.678255
+    ],
+    "features": 9
+  },
+  {
+    "path": "states\\texas\\cd118_texas.geojson",
+    "bbox": [
+      -106.645604,
+      25.837915,
+      -93.508039,
+      36.500439
+    ],
+    "features": 38
+  },
+  {
+    "path": "states\\utah\\cd118_utah.geojson",
+    "bbox": [
+      -114.050052,
+      36.998977,
+      -109.042572,
+      42.001702
+    ],
+    "features": 4
+  },
+  {
+    "path": "states\\vermont\\cd118_vermont.geojson",
+    "bbox": [
+      -73.437706,
+      42.726933,
+      -71.46505,
+      45.013638
+    ],
+    "features": 1
+  },
+  {
+    "path": "states\\virginia\\cd118_virginia.geojson",
+    "bbox": [
+      -83.675293,
+      36.541965,
+      -75.166435,
+      39.466012
+    ],
+    "features": 11
+  },
+  {
+    "path": "states\\washington\\cd118_washington.geojson",
+    "bbox": [
+      -124.848974,
+      45.543841,
+      -116.916071,
+      49.002072
+    ],
+    "features": 10
+  },
+  {
+    "path": "states\\west_virginia\\cd118_west_virginia.geojson",
+    "bbox": [
+      -82.644591,
+      37.20154,
+      -77.719519,
+      40.638801
+    ],
+    "features": 2
+  },
+  {
+    "path": "states\\wisconsin\\cd118_wisconsin.geojson",
+    "bbox": [
+      -92.889433,
+      42.493763,
+      -86.249548,
+      47.309822
+    ],
+    "features": 8
+  },
+  {
+    "path": "states\\wyoming\\cd118_wyoming.geojson",
+    "bbox": [
+      -111.054556,
+      40.997875,
+      -104.053249,
+      44.999735
+    ],
+    "features": 1
+  }
+]

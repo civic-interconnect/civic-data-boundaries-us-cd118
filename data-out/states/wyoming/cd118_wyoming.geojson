@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "cd118_wyoming",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4269" } },
+"features": [
+{ "type": "Feature", "properties": { "STATEFP20": "56", "GEOID20": "5600", "CD118FP": "00", "NAMELSAD20": "Congressional District (at Large)", "LSAD20": "C1", "CDSESSN": "118", "MTFCC20": "G5200", "FUNCSTAT20": "N", "ALAND20": 251458711911, "AWATER20": 1867504105, "INTPTLAT20": "+42.9896591", "INTPTLON20": "-107.5443922" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -111.054556, 44.999735 ], [ -104.057879, 44.997605 ], [ -104.053249, 41.001406 ], [ -111.046815, 40.997875 ], [ -111.054556, 44.999735 ] ] ] } }
+]
+}

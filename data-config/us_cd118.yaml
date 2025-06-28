@@ -1,0 +1,44 @@
+schema_version: 1.0
+
+# Global defaults
+simplify_tolerance: 0.05
+chunk_max_features: 500
+drop_columns:
+  - ALAND
+  - AWATER
+  - NAMELSAD
+  - GEOID
+  - LSAD
+
+layers:
+  # TIGER/Line Congressional Districts 118
+  - name: cd118
+    description: US 118th Congressional District boundaries from TIGER/Line 2022
+    year: 2022
+    source: US Census Bureau TIGER/Line
+    license: Public domain
+    geometry_type: Polygon
+    nationwide: false
+    base_url: https://www2.census.gov/geo/tiger/TIGER2022/CD
+    fips_start: "01"
+    fips_end: "56"
+    filename_pattern: tl_2022_{fips}_cd118.zip
+    ocd_pattern: ocd-division/country:us/state:{state}/cd:{district}
+    output_dir: tiger
+    split_by: fips
+    extract: true
+    simplify_tolerance: 0.01
+
+  # Nationwide GeoJSON layer
+  - name: cd118_national
+    description: Nationwide GeoJSON export for CD118
+    year: 2022
+    source: US Census Bureau TIGER/Line
+    license: Public domain
+    geometry_type: Polygon
+    nationwide: true
+    output_dir: national
+    filename: cd118_us.geojson
+    split_by: false
+    simplify_tolerance: 0.01
+    chunk_max_features: 500
