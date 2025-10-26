@@ -1,6 +1,12 @@
+"""Cleanup utilities for US Congressional District 118 boundary data.
+
+This module provides functions to clean up downloaded and extracted boundary data files,
+including ZIP archives and shapefile sets, from the data input directory.
+"""
+
+from pathlib import Path
 import shutil
 import sys
-from pathlib import Path
 
 from civic_lib_core import log_utils
 
@@ -11,9 +17,9 @@ SHAPEFILE_EXTENSIONS = {".shp", ".shx", ".dbf", ".prj", ".cpg"}
 
 
 def clean_data_in_dir(data_in_dir: Path):
-    """
-    Delete all .zip files and entire shapefile sets from data-in/,
-    including loose shapefiles and extracted folders.
+    """Delete all .zip files and entire shapefile sets from data-in/.
+
+    Including loose shapefiles and extracted folders.
 
     Keeps chunked GeoJSONs safe in data-out.
     """
@@ -26,7 +32,7 @@ def clean_data_in_dir(data_in_dir: Path):
     deleted_sets = 0
 
     # Track which shapefile base names we've already deleted
-    shapefile_bases_deleted = set()
+    shapefile_bases_deleted: set[Path] = set()
 
     for path in data_in_dir.rglob("*"):
         # Delete .zip files
@@ -66,6 +72,20 @@ def clean_data_in_dir(data_in_dir: Path):
 
 
 def main() -> int:
+    """Clean up US Congressional District 118 boundary data.
+
+    This function orchestrates the cleanup of data files in the input directory by:
+    1. Retrieving the input data directory path
+    2. Executing the cleanup process on all files in that directory
+    3. Handling any exceptions that occur during the process
+
+    Returns:
+        int: Exit code where 0 indicates success and 1 indicates failure.
+
+    Raises:
+        Exception: Any exception during cleanup is caught, logged, and results in
+                   a non-zero return code.
+    """
     try:
         from civic_data_boundaries_us_cd118.utils.get_paths import get_data_in_dir
 

@@ -1,7 +1,18 @@
+"""Export and chunk TIGER data for US Congressional Districts 118th Congress.
+
+This module provides functionality to:
+- Export CD118 (Congressional Districts 118th Congress) boundary data
+- Chunk exported GeoJSON files based on configuration settings
+- Handle both state-split and nationwide layer processing
+"""
+
 import sys
 
 from civic_lib_core import log_utils
-from civic_lib_geo.cli.chunk_geojson import apply_to_geojson_folder, chunk_one
+from civic_lib_geo.cli.chunk_geojson import (  # pyright: ignore[reportMissingTypeStubs]
+    apply_to_geojson_folder,  # pyright: ignore[reportUnknownVariableType]
+    chunk_one,
+)
 
 from civic_data_boundaries_us_cd118.export_cd118 import export_cd118
 from civic_data_boundaries_us_cd118.utils.config_utils import load_layer_config
@@ -11,8 +22,8 @@ logger = log_utils.logger
 
 
 def chunk_layers():
-    """
-    Chunk all exported geojsons in data-out/, based on YAML configs.
+    """Chunk all exported geojsons in data-out/, based on YAML configs.
+
     Handles both split-by-state folders and single nationwide layers.
     """
     cfg = load_layer_config("cd118")
@@ -56,8 +67,8 @@ def chunk_layers():
 
 
 def main() -> int:
-    """
-    Export and chunk TIGER data for layers:
+    """Export and chunk TIGER data for layers.
+
     - CD118
     - Chunking output geojsons
 

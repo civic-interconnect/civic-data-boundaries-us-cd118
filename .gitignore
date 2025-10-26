@@ -1,52 +1,126 @@
-# This .gitignore file lists content that does NOT need to be tracked in the project history
+# This project .gitignore file
+# lists files and folders that do NOT need to be tracked in version control.
 
 # ----------------------------------------
-# macOS system files (always ignore)
+# Operating System files
 # ----------------------------------------
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon\r
+._*
+.Spotlight-V100/
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
 
 # ----------------------------------------
-# Visual Studio Code (always ignore)
+# Editors / IDEs
 # ----------------------------------------
-.vscode/
+.vscode/*
+.idea/
+*.code-workspace
 
 # ----------------------------------------
-# Environment variables and secrets (always ignore)
+# Environment variables and secrets
 # ----------------------------------------
 .env
 .env.*
+*.env
+.pypirc
 
 # ----------------------------------------
-# Python (ignore for all Python projects)
+# Python: bytecode, environments, build artifacts
 # ----------------------------------------
 .venv/
+venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.egg-info/
-build/
-dist/
-.ruff_cache/
-.pytest_cache/
 .ipynb_checkpoints/
 
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+*.whl
+
+# Test / coverage / linters
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+.pytype/
+.tox/
+.cache/
+
+# setuptools-scm generated file(s)
+src/**/_version.py
+
 # ----------------------------------------
-# Logs (runtime generated)
+# MkDocs (built site)
+# ----------------------------------------
+site/
+
+# ----------------------------------------
+# Logs and temp files
 # ----------------------------------------
 logs/
-
-# ----------------------------------------
-# Storage (runtime pulled data snapshots)
-# ----------------------------------------
-storage/
-
-# ----------------------------------------
-# General temp / system files
-# ----------------------------------------
-*.swp
-*.bak
-*.tmp
+reports/
 *.log
 tmp/
-.github/workflows/__pycache__/
+
+# ----------------------------------------
+# Ignore in library projects
+# ----------------------------------------
+# Dependency lock file for the 'uv' package manager
+uv.lock
+
+# ----------------------------------------
+# Data repos (keep generated "data-out" for hosting)
+# ----------------------------------------
+data-in/**
+!data-in/*.md
+
+tiger/**
+!tiger/*.md
+
+storage/**
+!storage/*.md
+
+# ----------------------------------------
+# Go
+# ----------------------------------------
+bin/
+out/
+*.test
+# (keep go.mod and go.sum)
+
+# ----------------------------------------
+# Node / front-end apps
+# ----------------------------------------
+node_modules/
+.pnpm-store/
+.pnp.*
+.npm/
+.yarn/
+.yarnrc.yml
+.next/
+.nuxt/
+.svelte-kit/
+.parcel-cache/
+.turbo/
+.vite/
+
+# ----------------------------------------
+# Zig
+# ----------------------------------------
+zig-out/
+.zig-cache/
+zig-cache/

@@ -1,77 +1,123 @@
 # DEVELOPER.md
 
-## Setup for Data Projects
+## Prerequisites: Set Up Machine
+
+- View hidden files and folders
+- View file extensions
+- Git
+- VS Code (recommended)
+- **[uv](https://github.com/astral-sh/uv)**
+
+## Fork and Clone Repository
 
 1. Fork the repo.
-2. Clone your fork and open it in VS Code.
-3. Open a terminal (examples below use PowerShell on Windows).
+2. Clone your repo to your machine and open it in VS Code.
 
-```
-git clone https://github.com/civic-interconnect/civic-data-boundaries-us-cd118.git
-cd civic-data-boundaries-us
-.\seted.ps1
-civic-dev prep-code
-civic-dev publish-api
-mkdocs serve
-```
-
-Visit local API docs at: <http://localhost:8000>
-
-## Before Starting Changes, Verify
+Open a terminal and run the following commands.
 
 ```shell
-git pull
+git clone https://github.com/YOUR_USERNAME/civic-data-boundaries-us-cd118.git
+cd civic-data-boundaries-us-cd118
+```
+
+## Dev 1. One-time setup
+
+- Open the repo directory in VS Code.
+- Open a terminal in VS Code.
+
+```shell
+uv python pin 3.12
+uv venv
+
+.venv\Scripts\activate # Windows
+# source .venv/bin/activate  # Mac/Linux/WSL
+
+uv sync --extra dev --extra docs --upgrade
+uv run pre-commit install
+```
+
+## Dev 2. Validate Local Changes
+
+```shell
+git pull origin main
+uvx pre-commit autoupdate
+git add .
+uvx ruff check . --fix
+uvx ruff format .
+uvx deptry .
+uvx pyright
+uv run pytest
+```
+
+Run the pre-commit hooks (twice, if needed):
+
+```bash
+pre-commit run --all-files
+```
+
+## DEV 3. Regenerate (Optional) and Build and Inspect Package
+
+```bash
 civic-us-cd118 fetch
 civic-us-cd118 export
 civic-us-cd118 index
 civic-us-cd118 cleanup
 ```
 
+```pwsh
+uv build
 
-## Releasing New Version
-
-Before publishing a new version, delete .venv. and recreate and activate.
-Run pre-release preparation, installing and upgrading without the -e editable flag.
-Verify all tests pass. Run prep-code (twice if needed).
-Verify the docs are generated and appear correctly.
-
-```powershell
-git pull
-
-deactivate
-Remove-Item -Recurse -Force .venv
-
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-py -m pip install --upgrade pip setuptools wheel --prefer-binary
-py -m pip install --upgrade .[dev]
-
-pytest tests
-civic-dev prep-code
-civic-dev publish-api
-mkdocs serve
+$TMP = New-Item -ItemType Directory -Path ([System.IO.Path]::GetTempPath()) -Name ("wheel_" + [System.Guid]::NewGuid())
+Expand-Archive dist\*.whl -DestinationPath $TMP.FullName
+Get-ChildItem -Recurse $TMP.FullName | ForEach-Object { $_.FullName.Replace($TMP.FullName + '\','') }
+Remove-Item -Recurse -Force $TMP
 ```
 
-After verifying changes, update VERSION, README badge, and pyproject.toml, then git add-commit-tag-push:
+## DEV 4. Build and Preview Docs
 
-```powershell
-civic-dev bump-version 0.0.1 0.0.2
+```pwsh
+uv run mkdocs build --strict
+uv run mkdocs serve
+```
 
-git pull
+Verify local API docs at: <http://localhost:8000>
+When done reviewing, use CTRL c or CMD c to quit.
 
-deactivate
-Remove-Item -Recurse -Force .venv
+## DEV 5. Clean Artifacts (Optional)
 
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
+```pwsh
+Get-ChildItem -Path . -Recurse -Directory -Filter "*__pycache__*" | Remove-Item -Recurse -Force
+Get-ChildItem -Path . -Recurse -Directory -Filter ".*_cache"  | Remove-Item -Recurse -Force
+Get-ChildItem -Path "src" -Recurse -Directory -Name "*.egg-info" | Remove-Item -Recurse -Force
+Remove-Item -Path "build", "dist", "site" -Recurse -Force
+```
 
-py -m pip install --upgrade pip setuptools wheel --prefer-binary
-py -m pip install --upgrade .[dev]
+## DEV 6. Test
 
+Update `CHANGELOG.md` and `pyproject`.toml dependencies.
+Ensure CI passes.
+
+```shell
+uv run pre-commit run --all-files
+uv run pytest -q
+```
+
+## DEV 7. Git add-commit-push Changes
+
+```shell
 git add .
-git commit -m "Release v0.0.1"
-git tag "v0.0.1"
-git push origin main
-git push origin "v0.0.1"
+git commit -m "Prep vx.y.z"
+git push -u origin main
 ```
+
+## DEV 8. Git tag and Push tag
+
+**Important:** Wait for GitHub Actions from prior step to complete successfully (all green checks).
+If any fail, fix issues and push again before tagging.
+
+```shell
+git tag vx.y.z -m "x.y.z"
+git push origin vx.y.z
+```
+
+> A GitHub Action will **build**, **publish to PyPI** (Trusted Publishing), **create a GitHub Release** with artifacts, and **deploy versioned docs** with `mike`.

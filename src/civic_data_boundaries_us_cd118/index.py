@@ -1,7 +1,6 @@
-"""
-index.py
+"""Generates index.json and summary metadata in data-out/.
 
-Generates index.json and summary metadata in data-out/.
+File: index.py
 
 Used by civic-usa-cd118 CLI:
     civic-usa-cd118 index
@@ -13,9 +12,10 @@ Currently builds:
 
 import json
 from pathlib import Path
+from typing import Any
 
-import geopandas as gpd
 from civic_lib_core import date_utils, log_utils
+import geopandas as gpd
 
 from civic_data_boundaries_us_cd118.utils.get_paths import get_data_out_dir
 
@@ -27,14 +27,13 @@ class IndexBuildError(Exception):
 
 
 def compute_bbox(geojson_path: Path) -> list[float] | None:
-    """
-    Compute bounding box [minx, miny, maxx, maxy] for a GeoJSON file.
+    """Compute bounding box [minx, miny, maxx, maxy] for a GeoJSON file.
 
     Returns:
         List of four floats, or None if read fails.
     """
     try:
-        gdf = gpd.read_file(geojson_path)
+        gdf: gpd.GeoDataFrame = gpd.read_file(geojson_path)
         bounds = gdf.total_bounds
         return [round(x, 6) for x in bounds]
     except Exception as e:
@@ -43,14 +42,13 @@ def compute_bbox(geojson_path: Path) -> list[float] | None:
 
 
 def compute_feature_count(geojson_path: Path) -> int | None:
-    """
-    Count number of features in a GeoJSON file.
+    """Count number of features in a GeoJSON file.
 
     Returns:
         Integer feature count, or None if read fails.
     """
     try:
-        gdf = gpd.read_file(geojson_path)
+        gdf: gpd.GeoDataFrame = gpd.read_file(geojson_path)
         return len(gdf)
     except Exception as e:
         logger.warning(f"Could not read {geojson_path.name} to count features: {e}")
@@ -59,20 +57,33 @@ def compute_feature_count(geojson_path: Path) -> int | None:
 
 def write_manifest(
     out_dir: Path,
-    layer_config: dict,
-    index_data: list[dict],
+    layer_config: dict[str, Any],
+    index_data: list[dict[str, Any]],
     manifest_filename: str = "manifest.json",
     days_back: int | None = None,
 ) -> None:
-    """
-    Writes a manifest JSON file summarizing a data export.
+    """Write a manifest file containing metadata about a geospatial dataset.
 
     Args:
-        out_dir (Path): Root data output folder.
-        layer_config (dict): Config dictionary for the layer.
-        index_data (list[dict]): The index entries with paths and metadata.
-        manifest_filename (str): Filename for the manifest (default "manifest.json").
-        days_back (int | None): Optional number of days back for a date range.
+        out_dir (Path): The output directory where the manifest file will be written.
+        layer_config (dict): Configuration dictionary containing dataset metadata such as
+            name, description, year, source, license, geometry_type, and nationwide flag.
+        index_data (list[dict]): List of dictionaries containing information about indexed
+            files, where each entry should have a "path" key and optionally a "features" key.
+        manifest_filename (str, optional): Name of the manifest file to create.
+            Defaults to "manifest.json".
+        days_back (int | None, optional): Number of days back to include in date range.
+            If None, no date range is included. Defaults to None.
+
+    Returns:
+        None
+
+    Raises:
+        IOError: If the manifest file cannot be written to the specified path.
+
+    Note:
+        The function creates a JSON manifest file containing dataset metadata, file counts,
+        feature counts, file paths, generation timestamp, and optional date range information.
     """
     total_files = len(index_data)
     total_features = sum(
@@ -84,7 +95,7 @@ def write_manifest(
     if days_back is not None:
         date_range_list = date_utils.date_range(days_back)
 
-    manifest = {
+    manifest: dict[str, Any] = {
         "dataset": layer_config.get("name"),
         "description": layer_config.get("description"),
         "year": layer_config.get("year"),
@@ -100,22 +111,21 @@ def write_manifest(
     }
 
     manifest_path = out_dir / manifest_filename
-    with open(manifest_path, "w", encoding="utf-8") as f:
+    with Path.open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
 
     logger.info(f"Manifest written to {manifest_path}")
 
 
 def build_index_main() -> int:
-    """
-    Build an index.json summarizing exported GeoJSONs.
+    """Build an index.json summarizing exported GeoJSONs.
 
     Returns:
         0 if successful, 1 on failure.
     """
     try:
         out_dir = get_data_out_dir()
-        index = []
+        index: list[dict[str, Any]] = []
 
         logger.info(f"Scanning {out_dir} for GeoJSONs...")
 
@@ -124,7 +134,7 @@ def build_index_main() -> int:
             bbox = compute_bbox(geojson)
             feature_count = compute_feature_count(geojson)
 
-            index_entry = {
+            index_entry: dict[str, Any] = {
                 "path": str(geojson.relative_to(out_dir)),
                 "bbox": bbox,
                 "features": feature_count,
@@ -133,14 +143,14 @@ def build_index_main() -> int:
 
         # Save index.json
         index_file = out_dir / "index.json"
-        with open(index_file, "w", encoding="utf-8") as f:
+        with Path.open(index_file, "w", encoding="utf-8") as f:
             json.dump(index, f, indent=2)
 
         logger.info(f"index.json written to {index_file}")
         logger.info(f"{len(index)} GeoJSONs indexed.")
 
         # Dummy layer config (for standalone runs)
-        dummy_layer_config = {
+        dummy_layer_config: dict[str, Any] = {
             "name": "cd118",
             "description": "US 118th Congressional District boundaries from TIGER/Line 2022",
             "year": 2022,
@@ -166,9 +176,7 @@ def build_index_main() -> int:
 
 
 def main() -> int:
-    """
-    CLI entry point for index.
-    """
+    """CLI entry point for index."""
     try:
         return build_index_main()
     except Exception as e:
