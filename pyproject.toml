@@ -45,6 +45,7 @@ dev = [ # Add all to deptry ignores
   "pytest",
   "pytest-cov",
   "pytest-env",
+  "twine",
   "validate-pyproject",
 ]
 docs = [ # Add all to deptry ignores
@@ -126,6 +127,7 @@ DEP002 = [
   "pytest",
   "pytest-cov",
   "pytest-env",
+  "twine",
   "validate-pyproject",
   # Docs dependencies
   "mike",

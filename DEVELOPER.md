@@ -51,20 +51,20 @@ uv run pytest
 
 Run the pre-commit hooks (twice, if needed):
 
-```bash
+```shell
 pre-commit run --all-files
 ```
 
 ## DEV 3. Regenerate (Optional) and Build and Inspect Package
 
-```bash
-civic-us-cd118 fetch
-civic-us-cd118 export
-civic-us-cd118 index
-civic-us-cd118 cleanup
+```shell
+uv run civic-us-cd118 fetch
+uv run civic-us-cd118 export
+uv run civic-us-cd118 index
+uv run civic-us-cd118 cleanup
 ```
 
-```pwsh
+```shell
 uv build
 
 $TMP = New-Item -ItemType Directory -Path ([System.IO.Path]::GetTempPath()) -Name ("wheel_" + [System.Guid]::NewGuid())
@@ -75,7 +75,7 @@ Remove-Item -Recurse -Force $TMP
 
 ## DEV 4. Build and Preview Docs
 
-```pwsh
+```shell
 uv run mkdocs build --strict
 uv run mkdocs serve
 ```
@@ -85,7 +85,7 @@ When done reviewing, use CTRL c or CMD c to quit.
 
 ## DEV 5. Clean Artifacts (Optional)
 
-```pwsh
+```shell
 Get-ChildItem -Path . -Recurse -Directory -Filter "*__pycache__*" | Remove-Item -Recurse -Force
 Get-ChildItem -Path . -Recurse -Directory -Filter ".*_cache"  | Remove-Item -Recurse -Force
 Get-ChildItem -Path "src" -Recurse -Directory -Name "*.egg-info" | Remove-Item -Recurse -Force
