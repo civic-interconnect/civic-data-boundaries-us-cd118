@@ -59,4 +59,5 @@ jobs:
             git config user.name  "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             uv run mike deploy --push --update-aliases dev
-       
+            # Set default if not already set (for new repos)
+            uv run mike set-default --push dev || true
